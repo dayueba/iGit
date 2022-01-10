@@ -641,7 +641,7 @@ update
 ```bash
 # 此为注释 – 将被 Git 忽略
 *.a       # 忽略所有 .a 结尾的文件
-!lib.a    # 但 lib.a 除外
+!lib.a    # （反向排除） 但 lib.a 除外
 /TODO     # 仅仅忽略项目根目录下的 TODO 文件，不包括 subdir/TODO
 build/    # 忽略 build/ 目录下的所有文件
 doc/*.txt # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
@@ -697,6 +697,10 @@ git rm -r --cached .    #清除缓存
 git add .               #重新trace file
 git commit -m "update .gitignore" #提交和注释
 git push origin master  #可选，如果需要同步到remote上的话
+```
+### 强制添加
+```
+git add -f main.js
 ```
 
 ## git submodule 子模块的管理和使用
