@@ -18,6 +18,7 @@
 - [怎样把连续的多个`commit`整理成1个](#怎样把连续的多个commit整理成1个)
 - [添加忽略配置文件`.gitignore`](#添加忽略配置文件gitignore)
 - [Git修改 `.gitignore` 后生效](#git修改gitignore后生效)
+- [忽略文件权限](#忽略文件权限)
 - [git submodule 子模块的管理和使用](#git-submodule-子模块的管理和使用)
 - [寻找并删除Git记录中的大文件](#寻找并删除git记录中的大文件)
 - [配置公私钥](#配置公私钥)
@@ -87,7 +88,11 @@ git add [fileName]  把文件从工作目录添加到暂存区
 git commit -m'some information'  用于提交暂存区的文件
 git commit -am'Some information' 用于提交跟踪过的文件
 git log  查看历史
-git status  查看状态
+git 查看状态
+    - Untracked: 未跟踪，一般为新增文件，此文件在文件夹中，但并没有加入到 git 库，不参与版本控制。通过 git add 状态变为 Staged. 
+    - Modified: 文件已被修改 仅仅是修改 没有其它操作
+    - deleted：文件被删除 本地删除 服务器上没有删除
+    - renamed 文件名称被改变
 ```
 
 **额外**    
@@ -699,8 +704,14 @@ git commit -m "update .gitignore" #提交和注释
 git push origin master  #可选，如果需要同步到remote上的话
 ```
 ### 强制添加
-```
+```bash
 git add -f main.js
+```
+
+## 忽略文件权限
+```bash
+git config core.filemode false # 当前版本库忽略文件权限
+git config --global core.filemode false # 所有版本库忽略文件权限
 ```
 
 ## git submodule 子模块的管理和使用
